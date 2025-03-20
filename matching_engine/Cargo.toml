@@ -1,0 +1,6 @@
+[package]
+name = "matching_engine"
+edition.workspace = true
+version.workspace = true
+
+[dependencies]

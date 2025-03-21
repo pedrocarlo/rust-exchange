@@ -1,9 +1,10 @@
 use std::collections::BinaryHeap;
-use std::{cmp::Reverse, collections::HashMap};
+use std::collections::HashMap;
 
 use crate::{Order, OrderBook, OrderId, OrderSide, Price, Volume};
 
 /// Price Time Priority Order Book Implementation
+#[allow(dead_code)]
 #[derive(Default)]
 struct PTP {
     buy_book: HashMap<OrderId, Order>,
@@ -16,12 +17,12 @@ struct PTP {
 
 impl OrderBook for PTP {
     fn place_order(&mut self, order: Order) -> bool {
-        let (same_book, opposite_book) = match order.side {
+        let (_same_book, opposite_book) = match order.side {
             OrderSide::Buy => (&mut self.ask_prices, &mut self.bid_prices),
             OrderSide::Sell => (&mut self.bid_prices, &mut self.ask_prices),
         };
 
-        let mut other_order = opposite_book.peek_mut();
+        let other_order = opposite_book.peek_mut();
 
         if other_order.is_none() {
             return false;
@@ -38,7 +39,7 @@ impl OrderBook for PTP {
         true
     }
 
-    fn cancel_order(&mut self, order_id: OrderId) {}
+    fn cancel_order(&mut self, _order_id: OrderId) {}
 
     fn best_ask(&self) -> Option<&Order> {
         match self.ask_prices.peek() {

@@ -1,6 +1,7 @@
 [package]
-name = "seqlock"
 edition.workspace = true
+name = "seqlock"
 version.workspace = true
 
-[dependencies]
+[dev-dependencies]
+crossbeam = "0.8.4"

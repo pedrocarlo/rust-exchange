@@ -1,10 +1,10 @@
 pub(crate) mod price_time_priority;
 
-fn generate_random_number() -> i64 {
-    let mut buf = [0u8; 8];
-    getrandom::fill(&mut buf).unwrap();
-    i64::from_ne_bytes(buf)
-}
+// fn generate_random_number() -> i64 {
+//     let mut buf = [0u8; 8];
+//     getrandom::fill(&mut buf).unwrap();
+//     i64::from_ne_bytes(buf)
+// }
 
 pub type OrderId = u128;
 pub type Price = ordered_float::OrderedFloat<f64>;

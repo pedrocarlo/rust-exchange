@@ -1,5 +1,5 @@
 [workspace]
-members = ["matching_engine"]
+members = ["matching_engine", "order_book"]
 resolver = "2"
 
 [workspace.package]
